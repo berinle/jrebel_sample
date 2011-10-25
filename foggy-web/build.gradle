@@ -1,7 +1,11 @@
-evaluationDependsOn(':foggy-core')
+//evaluationDependsOn(':foggy-core')
 
 apply plugin: 'war'
 apply plugin: 'jetty'
 
 dependencies {
+    compile project(':foggy-core')
+    compile "org.springframework:spring-webmvc:${springVersion}"
+    runtime "jstl:jstl:1.2"
+    runtime 'taglibs:standard:1.1.2'
 }

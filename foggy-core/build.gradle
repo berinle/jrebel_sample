@@ -1,8 +1,10 @@
-evaluationDependsOn(':foggy-persistence')
+//evaluationDependsOn(':foggy-persistence')
 
 repositories {
 	mavenCentral()
 }
 
 dependencies {
+    compile "org.springframework:spring-tx:${springVersion}"
+    compile project(':foggy-persistence')
 }

@@ -23,6 +23,9 @@ allprojects {
 		compile "org.springframework:spring-context:${springVersion}"
 		compile "org.springframework:spring-context-support:${springVersion}"
 		compile "org.springframework:spring-core:${springVersion}"
+		compile "org.springframework:spring-orm:${springVersion}"
+		compile "org.springframework:spring-orm:${springVersion}"
+        compile "javax.inject:javax.inject:1"
 		testCompile "org.hamcrest:hamcrest-integration:${hamcrestVersion}"
 		testCompile "junit:junit:${junitVersion}"
 	}
