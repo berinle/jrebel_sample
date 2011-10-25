@@ -1,0 +1,8 @@
+evaluationDependsOn(':foggy-persistence')
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+}

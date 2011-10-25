@@ -1,0 +1,7 @@
+evaluationDependsOn(':foggy-core')
+
+apply plugin: 'war'
+apply plugin: 'jetty'
+
+dependencies {
+}
