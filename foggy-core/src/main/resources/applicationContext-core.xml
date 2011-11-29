@@ -7,4 +7,17 @@
     <component:component-scan base-package="sample.service"/>
     <component:component-scan base-package="sample.dao"/>
 
+    <bean id="httpInvokerBubbleService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter" >
+        <property name="serviceInterface" value="sample.service.BubbleService"/>
+        <property name="service" ref="bubbleServiceImpl"/>
+    </bean>
+    
+    <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <value>
+                /bubbleService=httpInvokerBubbleService
+            </value>
+        </property>
+    </bean>
+
 </beans>

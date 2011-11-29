@@ -1,10 +1,17 @@
 //evaluationDependsOn(':foggy-persistence')
 
+apply plugin: 'jetty'
+
 repositories {
 	mavenCentral()
 }
 
 dependencies {
-    compile "org.springframework:spring-tx:${springVersion}"
+    compile "org.springframework:spring-tx:${springVersion}",
+            "org.springframework:spring-webmvc:$springVersion"
     compile project(':foggy-persistence')
+}
+
+jettyRun {
+    httpPort=8888
 }
