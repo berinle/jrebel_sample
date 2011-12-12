@@ -7,6 +7,7 @@ import sample.Bubble;
 import sample.service.*;
 
 import javax.inject.Inject;
+import javax.inject.Qualifier;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -15,24 +16,30 @@ import java.util.Map;
 class BubbleController {
 
     public static final Logger log = Logger.getLogger(BubbleController.class);
-    
+
+    @org.springframework.beans.factory.annotation.Qualifier("httpBubbleService")
     @Inject
 	private BubbleService service;
 
     @RequestMapping("/list")
 	public String list(Map<String, Object> model){
         log.debug("BubbleController.list");
-        //List<Bubble> bubbles = service.getBubbles();
-        List<Bubble> bubbles = createDummyData();
+        List<Bubble> bubbles = service.getBubbles();
+        
+        if(bubbles.isEmpty()){
+            log.debug("creating fake data");
+            bubbles = createDummyData();
+        }
+
         model.put("bubbles", bubbles);
         return "home";
 	}
     
     private List<Bubble> createDummyData(){
         ArrayList<Bubble> bubbles = new ArrayList<Bubble>();
-        bubbles.add(new Bubble(1l, "foo"));
-        bubbles.add(new Bubble(2l, "bar"));
-        bubbles.add(new Bubble(3l, "baz"));
+        bubbles.add(new Bubble(1l, "fake-foo"));
+        bubbles.add(new Bubble(2l, "fake-bar"));
+        bubbles.add(new Bubble(3l, "fake-baz"));
         return bubbles;
     }
 	

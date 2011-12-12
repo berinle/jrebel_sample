@@ -1,10 +1,11 @@
 package sample;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name="BUBBLE")
-public class Bubble {
+public class Bubble implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
@@ -33,5 +34,10 @@ public class Bubble {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }

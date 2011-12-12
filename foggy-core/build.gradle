@@ -2,6 +2,15 @@
 
 apply plugin: 'jetty'
 
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "com.h2database:h2:1.3.160"
+    }
+}
+
 repositories {
 	mavenCentral()
 }
@@ -14,4 +23,9 @@ dependencies {
 
 jettyRun {
     httpPort=8888
+}
+
+//start h2 server before server starts
+[jettyRun, jettyRunWar]*.doFirst {
+    org.h2.tools.Server.main()
 }

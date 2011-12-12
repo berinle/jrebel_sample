@@ -5,3 +5,7 @@ out/
 *.iml
 *.ipr
 *.iws
+
+foggy-core/foggydb.lock.db
+
+foggy-core/foggydb.h2.db

@@ -7,13 +7,19 @@
     <component:component-scan base-package="sample.dao"/>
 
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
-        <property name="url" value="jdbc:h2:mem:"/>
+        <!--<property name="url" value="jdbc:h2:mem:"/>-->
+        <property name="url" value="jdbc:h2:tcp://localhost/foggydb;USER=sa;INIT=RUNSCRIPT FROM 'src/test/resources/create.sql'"/>
         <property name="driverClassName" value="org.h2.Driver"/>
         <property name="username" value="sa"/>
     </bean>
 
     <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
+        <property name="packagesToScan">
+            <list>
+                <value>sample</value>
+            </list>
+        </property>
         <property name="hibernateProperties">
             <props>
                 <prop key="hibernate.dialect">org.hibernate.dialect.H2Dialect</prop>

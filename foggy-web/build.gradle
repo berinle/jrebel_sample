@@ -8,4 +8,5 @@ dependencies {
     compile "org.springframework:spring-webmvc:${springVersion}"
     runtime "jstl:jstl:1.2"
     runtime 'taglibs:standard:1.1.2'
+    testCompile 'org.apache.geronimo.specs:geronimo-servlet_2.5_spec:1.2'
 }
