@@ -7,8 +7,8 @@
     <component:component-scan base-package="sample.dao"/>
 
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
-        <!--<property name="url" value="jdbc:h2:mem:"/>-->
-        <property name="url" value="jdbc:h2:tcp://localhost/foggydb;USER=sa;INIT=RUNSCRIPT FROM 'src/test/resources/create.sql'"/>
+        <property name="url" value="jdbc:h2:mem:foggydb"/>
+        <!--<property name="url" value="jdbc:h2:tcp://localhost/foggydb;USER=sa;INIT=RUNSCRIPT FROM 'src/test/resources/create.sql'"/>-->
         <property name="driverClassName" value="org.h2.Driver"/>
         <property name="username" value="sa"/>
     </bean>
@@ -23,9 +23,7 @@
         <property name="hibernateProperties">
             <props>
                 <prop key="hibernate.dialect">org.hibernate.dialect.H2Dialect</prop>
-                <!--<prop key="hibernate.connection.driver_class">org.h2.Driver</prop>
-                <prop key="hibernate.connection.username">sa</prop>
-                <prop key="hibernate.connection.url">jdbc:h2:mem:</prop>-->
+                <prop key="hibernate.hbm2ddl.auto">create</prop>
             </props>
         </property>
     </bean>

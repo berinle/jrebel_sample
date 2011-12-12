@@ -9,9 +9,6 @@
         <param-name>contextConfigLocation</param-name>
         <param-value>
             /WEB-INF/foggy-servlet.xml
-            classpath:applicationContext-web.xml
-            classpath:applicationContext-core.xml
-            classpath:applicationContext-persistence.xml
         </param-value>
     </context-param>
 
