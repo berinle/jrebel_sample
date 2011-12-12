@@ -18,8 +18,7 @@ repositories {
 dependencies {
     compile "org.springframework:spring-tx:${springVersion}",
             "org.springframework:spring-webmvc:$springVersion"
-            "org.springframework:spring-webmvc:$springVersion",
-            "org.springframework:spring-web:$springVersion"
+
     compile project(':foggy-persistence')
 }
 
